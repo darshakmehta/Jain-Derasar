@@ -15,7 +15,7 @@ function DerasarStore() {
     }
 
     function getDerasars(cb){
-        derasarService.getDerasars().then(function (res) {
+        derasarService.getDerasars().then(function (res) {      //use .then whenever you're going to do something with the result (even if that's just waiting for it to finish) and use .done whenever you aren't planning on doing anything with the result.
             cb(res);
         });
     }

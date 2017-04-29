@@ -1,10 +1,11 @@
+//This file contains REST APIs calls
 var $ = require("jquery");
 var promise = require("es6-promise");
 var resourceUrl = "http://localhost:7777/api/derasars";
 
 module.exports = {
     addDerasar: function (derasar) {
-        var Promise = promise.Promise;
+        var Promise = promise.Promise;      // promise represents the result of an asynchronous operation
         return new Promise(function (resolve, reject) {
             $.ajax({
                 url: resourceUrl,
