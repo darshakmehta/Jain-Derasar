@@ -15,7 +15,7 @@ app.use("/api", derasarController);
 /* Redirect http to https */
 app.get('*',function(req,res,next){
   if(req.headers['x-forwarded-proto']!='https' && process.env.NODE_ENV === 'production')
-    res.redirect('https://'+req.hostname+req.url);
+    res.redirect('https://'+req.headers.host+req.url);
   else
     next(); /* Continue to other routes if we're not redirecting */
 });
