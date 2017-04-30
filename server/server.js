@@ -18,4 +18,5 @@ app.listen(port,function(){
 });
 
 // Connect to mongodb database
-mongoose.connect("mongodb://localhost/derasar");
+var mongoURI = "mongodb://localhost/derasar";
+mongoose.connect(process.env.MONGOLAB_URI || mongoURI);
