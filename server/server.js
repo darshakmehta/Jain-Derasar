@@ -12,12 +12,19 @@ app.use(express.static(path.join(__dirname,"../app/dist")));  //It serves static
 app.use(bodyParser.json());
 app.use("/api", derasarController);
 
+/* Redirect http to https */
+app.get('*',function(req,res,next){
+  if(req.headers['x-forwarded-proto']!='https' && process.env.NODE_ENV === 'production')
+    res.redirect('https://'+req.hostname+req.url);
+  else
+    next(); /* Continue to other routes if we're not redirecting */
+});
+
 var port = process.env.PORT || 7777;
 app.listen(port,function(){
 	console.log("Started listening on port",port);
 });
 
 // Connect to mongodb database
-//var mongoURI = "mongodb://localhost/derasar";
-var mongoURI = process.env.MONGOLAB_URI;
-mongoose.connect(mongoURI);
+var mongoURI = "mongodb://localhost/derasar";
+mongoose.connect(process.env.MONGOLAB_URI || mongoURI);

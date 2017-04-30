@@ -2,6 +2,7 @@
 var $ = require("jquery");
 var promise = require("es6-promise");
 var resourceUrl = "https://jain-derasar.herokuapp.com/api/derasars";
+//var resourceUrl = "http://localhost:7777/api/derasars";
 
 module.exports = {
     addDerasar: function (derasar) {
