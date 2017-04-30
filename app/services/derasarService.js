@@ -1,7 +1,7 @@
 //This file contains REST APIs calls
 var $ = require("jquery");
 var promise = require("es6-promise");
-var resourceUrl = process.env.MONGOLAB_URI + "api/derasars";
+var resourceUrl = "https://jain-derasar.herokuapp.com/api/derasars";
 
 module.exports = {
     addDerasar: function (derasar) {
