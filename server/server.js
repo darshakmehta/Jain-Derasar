@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname,"../app/dist")));  //It serves static
 app.use(bodyParser.json());
 app.use("/api", derasarController);
 
-var port = 7777;
+var port = process.env.PORT || 7777;
 app.listen(port,function(){
 	console.log("Started listening on port",port);
 });
